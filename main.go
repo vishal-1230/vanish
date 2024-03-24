@@ -1,11 +1,7 @@
 package main
 
-import (
-	"vanish/pkgs/utils"
-)
+import "vanish/cmd"
 
 func main() {
-	utils.CLog("Coding seekh rha hu")
+	cmd.Execute()
 }
-
-// go run main.go
