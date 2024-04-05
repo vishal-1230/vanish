@@ -8,7 +8,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "vanish",
-	Short: "Vanish is a command line tool to run machina learning models on local machine.",
+	Short: "Vanish is a command line tool to quikly have ML models running on your local machine.",
 	Long:  `Vanish runs a specified machine learning model on the local machine and 
 	exposes a set of REST API to interact with the model.`,
 }

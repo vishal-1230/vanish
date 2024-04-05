@@ -9,6 +9,7 @@ var pullCmd = &cobra.Command{
 	Use:   "pull",
 	Short: "Pulls the specified model to the local machine",
 	Long:  `This command will pull the specified model from the remote server to the local machine.`,
+	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("pull called")
 	},
