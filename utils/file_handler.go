@@ -34,11 +34,32 @@ func (f_instance FileHandler) ReadFile(path string, dataPointer interface{}) err
 	}
 }
 
-func (f_instance FileHandler) WriteFile(path string, data any) {
+const (
+	green  = "\033[32m"
+	reset  = "\033[0m"
+	yellow = "\033[33m"
+	red    = "\033[31m"
+)
+
+func (f_instance FileHandler) WriteFile(path string, data interface{}) error {
 	// We can add more file types here, json for now
 	if f_instance.Type_of_file == "json" {
-		fmt.Println("Writing JSON file", path)
+		fmt.Println("[", yellow, "•", reset, "]", "Writing JSON file", path)
+		file, err := os.Create(path)
+		if err != nil {
+			return errors.New("error creating file")
+		} else {
+			defer file.Close()
+		}
+
+		// Write the file
+		encoder := json.NewEncoder(file)
+		err = encoder.Encode(data)
+		if err != nil {
+			return errors.New("error encoding json file")
+		}
+		return nil
 	} else {
-		fmt.Println("Not supported File type:", f_instance.Type_of_file)
+		return errors.New("not supported file type: " + f_instance.Type_of_file)
 	}
 }

@@ -16,6 +16,7 @@ type Model struct {
 	HFURL        string     `json:"hf-url"`
 	Transformer  bool       `json:"transformer"`
 	Tokenizer    bool       `json:"tokenizer"`
+	Architecture string     `json:"architecture"`
 	Task         string     `json:"task"`
 	Framework    string     `json:"framework"`
 	Language     string     `json:"language"`
